@@ -1,15 +1,15 @@
 object question_04 extends App{
 
-	val acc1= new Bankacc("harry",12030,10000.00)
-	val acc2= new Bankacc("Hat",12040,-3000.00)
-  val acc3= new Bankacc("Jacob",12030,10000.00)
-	val acc4= new Bankacc("Maal",12040,3000.00)
+	val Account1= new Bankacc("Malith",10001,10000.00)
+	val Account2= new Bankacc("Mevan",10002,-3000.00)
+        val Account3= new Bankacc("Hasaranga",10003,10000.00)
+	val Account4= new Bankacc("Dilini",10004,3000.00)
 
-  var bank:List[Bankacc]=List(acc1,acc2,acc3,acc4)
+  var bank:List[Bankacc]=List(Account1,Account2,Account3,Account4)
 
   val overdraft = bank.filter(x=>x.balance<0)
   val balance = bank.map((x)=>(x.balance)).reduce((x,y)=>(x+y))
-  val interest = (b:List[Bankacc])=>b.map((x) => (x.nic,x.accnumber,if(x.balance>0)  (x.balance+(x.balance*0.5)) else (x.balance+(x.balance*0.1)) ))
+  val interest = (b:List[Bankacc])=>b.map((x) => (x.customer,x.Accno,if(x.balance>0)  (x.balance+(x.balance*0.5)) else (x.balance+(x.balance*0.1)) ))
 
   println(overdraft)
   println(balance)
@@ -17,12 +17,12 @@ object question_04 extends App{
 
 }
 
-class Bankacc(id:String,n:Int,b:Double){
+class Bankacc(name:String,t:Int,b:Double){
 
-  var nic:String=id
-  var accnumber:Int =n
+  var customer:String=name
+  var Accno:Int =t
   var balance:Double =b
 
-  override def toString = "["+nic+":"+accnumber+":"+balance+"]"
+  override def toString = "\t"+customer+"_"+Accno+"\t-> "+balance
 
 }

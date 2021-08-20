@@ -1,36 +1,37 @@
-object q3 extends App{
+object Q3 extends App{
 
-	val acc1= new Bankacc("alex",11035,100.00)
-	val acc2= new Bankacc("tom",11045,30.00)
+	val Account1= new Bankacc("Malith",1001,5000.00)
+	val Account2= new Bankacc("Mevan",1002,3000.00)
 
-  acc1.transfer(acc2,50.00)
-  println("Balances After money transfering")
-  println(acc1)
-  println(acc2)
+  Account1.transfer(Account2,500.00)
+  println("\nDisplay balances After proccess")
+  println("_________________________________")
+  println(Account1)
+  println(Account2)
 
 
 }
 
-class Bankacc(id:String,n:Int,b:Double){
+class Bankacc(name:String,x:Int,b:Double){
 
-  var nic:String=id
-  var accnumber:Int =n
+  var customer:String=name
+  var Accno:Int =x
   var balance:Double =b
 
-	def withdraw(n:Double){
-		this.balance=this.balance-n
+	def withdraw(x:Double){
+		this.balance=this.balance-x
 	}
 
-	def deposit(n:Double){
-		this.balance=this.balance+n
+	def deposit(x:Double){
+		this.balance=this.balance+x
 	}
 
-	def transfer(acc:Bankacc,n:Double)={
-    this.withdraw(n)
-    acc.deposit(n)
+	def transfer(account:Bankacc,x:Double)={
+    this.withdraw(x)
+    account.deposit(x)
   }
 
-  override def toString = "["+nic+":"+accnumber+":"+balance+"]"
+  override def toString = "\t"+customer+"_"+Accno+"\t-> "+balance
 
 	};object Q1 extends App{
 
