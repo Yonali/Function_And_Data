@@ -1,2 +1,2 @@
-# Function_And_Data answers are in Master branches
+# Function_And_Data answers are in Master branch
 view all branch -> master branch
